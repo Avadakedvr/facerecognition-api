@@ -1,7 +1,6 @@
 //API SERVER
 const express = require('express'); //initiate express
 const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors');
 const register = require('./controllers/register')
 const signin = require('./controllers/signin')
 const profile = require('./controllers/profile')
@@ -16,9 +15,9 @@ const db = require('knex')({
 
 const app = express(); //initiating app
 app.use(express.json());
-app.use(cors());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://lit-castle-50784.herokuapp.com/"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
