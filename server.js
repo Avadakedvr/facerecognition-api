@@ -13,11 +13,10 @@ const db = require('knex')({
     ssl: true,
   }
 });
-
-const app = express(); //initiating app
-
-app.use(express.json());
 app.use(cors());
+const app = express(); //initiating app
+app.use(express.json());
+
 
 //END POINTS
 app.get('/', (request, response) => {response.send('It is working!'); })
