@@ -1,7 +1,6 @@
 //API SERVER
 const express = require('express'); //initiate express
 const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors');
 const register = require('./controllers/register')
 const signin = require('./controllers/signin')
 const profile = require('./controllers/profile')
