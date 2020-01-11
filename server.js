@@ -15,9 +15,8 @@ const db = require('knex')({
 });
 
 const app = express(); //initiating app
-app.use(cors());
 app.use(express.json());
-
+app.use(cors());
 
 //END POINTS
 app.get('/', (request, response) => {response.send('It is working!'); })
