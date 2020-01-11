@@ -17,9 +17,8 @@ const db = require('knex')({
 const app = express(); //initiating app
 app.use(express.json());
 app.use(cors());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
@@ -33,7 +32,7 @@ app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcryp
 app.put('/image', (req, res) => {image.handleImage(req, res, db)}) //SEND_POINT_FROM_SERVER
 app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)})
 
-const PORT = process.env.PORT;
-app.listen(process.env.PORT || 3000, () => {//run app 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {//run app 
   console.log(`App is running on port ${PORT}`)
 })
