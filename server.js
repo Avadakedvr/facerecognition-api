@@ -13,8 +13,9 @@ const db = require('knex')({
     ssl: true,
   }
 });
-app.use(cors());
+
 const app = express(); //initiating app
+app.use(cors());
 app.use(express.json());
 
 
