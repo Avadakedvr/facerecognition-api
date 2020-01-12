@@ -5,6 +5,7 @@ const register = require('./controllers/register')
 const signin = require('./controllers/signin')
 const profile = require('./controllers/profile')
 const image = require('./controllers/image')
+const cors = require('cors');
 const db = require('knex')({
   client: 'pg',
   connection: {
@@ -15,11 +16,7 @@ const db = require('knex')({
 
 const app = express(); //initiating app
 app.use(express.json());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors());
 
 //END POINTS
 app.get('/', (request, response) => {response.send('It is working!'); })
